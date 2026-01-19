@@ -5,13 +5,111 @@ import { Font } from 'astro:assets';
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Personal website showcasing creative projects and portfolio work by Aravinthan." />
+		<meta name="theme-color" content="#000000" />
+		<meta name="author" content="Aravinthan" />
+		<meta name="keywords" content="aravinthan, aravinthan space, software developer, web developer, portfolio, full-stack developer" />
+		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href="https://aravinthan.space/" />
+		<link rel="author" href="https://aravinthan.space/#person" />
+
+		<!-- DNS Prefetch -->
+		<link rel="dns-prefetch" href="https://www.instagram.com/_rikato_._/" />
+		<link rel="dns-prefetch" href="https://www.youtube.com/@aravind3787" />
+		<link rel="dns-prefetch" href="https://x.com/aravinthanrc" />
+		<link rel="dns-prefetch" href="https://github.com/FreeRikato" />
+		<link rel="dns-prefetch" href="https://www.linkedin.com/in/aravinthan-r-97934b31b" />
+
+		<!-- Preconnect for Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+		<!-- Favicon with fallback -->
+		<link rel="icon" type="image/png" href="/icon-32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="/icon-192.png" sizes="192x192" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+		<link rel="manifest" href="/manifest.json" />
 		<meta name="generator" content={Astro.generator} />
-		<title>aravinthan</title>
+		<title>Aravinthan</title>
 		<Font cssVariable="--font-geist-mono" preload />
+		
+		<!-- Open Graph -->
+		<meta property="og:title" content="Aravinthan - Personal Portfolio" />
+		<meta property="og:description" content="Personal website showcasing creative projects and portfolio work by Aravinthan." />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="/og-image.png" />
+		<meta property="og:url" content="https://aravinthan.space/" />
+		<meta property="og:locale" content="en_US" />
+		
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Aravinthan - Personal Portfolio" />
+		<meta name="twitter:description" content="Personal website showcasing creative projects and portfolio work by Aravinthan." />
+		<meta name="twitter:image" content="/og-image.png" />
+		<meta name="twitter:site" content="@aravinthanrc" />
+		<meta name="twitter:creator" content="@aravinthanrc" />
+
+		<!-- Schema.org Structured Data -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@graph": [
+					{
+						"@type": "Person",
+						"@id": "https://aravinthan.space/#person",
+						"name": "Aravinthan",
+						"url": "https://aravinthan.space",
+						"email": "aravinthanrc@gmail.com",
+						"jobTitle": "Software Developer",
+						"description": "Full-stack software developer specializing in web technologies and creative portfolio projects",
+						"knowsAbout": [
+							"Web Development",
+							"Full-Stack Development",
+							"Portfolio Design",
+							"Software Engineering"
+						],
+						"sameAs": [
+							"https://github.com/FreeRikato",
+							"https://www.linkedin.com/in/aravinthan-r-97934b31b",
+							"https://instagram.com/_rikato_._/",
+							"https://www.youtube.com/@aravind3787",
+							"https://x.com/aravinthanrc"
+						]
+					},
+					{
+						"@type": "WebSite",
+						"@id": "https://aravinthan.space/#website",
+						"url": "https://aravinthan.space/",
+						"name": "Aravinthan",
+						"description": "Personal portfolio of Aravinthan showcasing software development projects and creative work",
+						"publisher": {
+							"@id": "https://aravinthan.space/#person"
+						},
+						"inLanguage": "en-US"
+					},
+					{
+						"@type": "WebPage",
+						"@id": "https://aravinthan.space/#webpage",
+						"url": "https://aravinthan.space/",
+						"name": "Aravinthan",
+						"description": "Personal portfolio of Aravinthan showcasing software development projects and creative work",
+						"isPartOf": {
+							"@id": "https://aravinthan.space/#website"
+						},
+						"about": {
+							"@id": "https://aravinthan.space/#person"
+						},
+						"datePublished": "2025-01-01",
+						"dateModified": "2025-01-19",
+						"inLanguage": "en-US"
+					}
+				]
+			}
+		</script>
 	</head>
 	<body>
+		<div class="stars" aria-hidden="true"></div>
 		<slot />
 	</body>
 </html>
@@ -24,5 +122,101 @@ import { Font } from 'astro:assets';
 		height: 100%;
 		background-color: black;
 		font-family: var(--font-geist-mono);
+		overflow: hidden;
+	}
+
+	.stars {
+		position: fixed;
+		inset: 0;
+		z-index: 0;
+		pointer-events: none;
+	}
+
+	.stars::before,
+	.stars::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 2px;
+		height: 2px;
+		background: transparent;
+		transform: translate(-50%, -50%);
+		animation: twinkle 8s ease-in-out infinite;
+	}
+
+	.stars::before {
+		box-shadow:
+			6vw 10vh 0 0 #9bbde0,
+			12vw 22vh 0 0 #b2cceb,
+			18vw 6vh 0 0 #a7c2e4,
+			24vw 35vh 0 0 #95b8dc,
+			30vw 18vh 0 0 #b8d2ee,
+			36vw 44vh 0 0 #8fb4d8,
+			42vw 28vh 0 0 #a6c4e5,
+			48vw 8vh 0 0 #9fc0e2,
+			54vw 38vh 0 0 #b4cfea,
+			60vw 22vh 0 0 #a0c1e3,
+			66vw 50vh 0 0 #9abbe0,
+			72vw 12vh 0 0 #b7d0ee,
+			78vw 32vh 0 0 #8eb3d8,
+			84vw 16vh 0 0 #a4c1e4,
+			90vw 46vh 0 0 #9fbfe1,
+			8vw 56vh 0 0 #b1cde9,
+			20vw 70vh 0 0 #9abde1,
+			34vw 62vh 0 0 #a8c6e6,
+			50vw 74vh 0 0 #95b7db,
+			64vw 66vh 0 0 #b0cbe9,
+			76vw 82vh 0 0 #9dc0e3,
+			88vw 72vh 0 0 #a6c4e6,
+			14vw 90vh 0 0 #90b4da,
+			28vw 86vh 0 0 #b6d0ee,
+			44vw 92vh 0 0 #9abce0,
+			58vw 88vh 0 0 #a3c3e6,
+			70vw 96vh 0 0 #8fb3d8,
+			82vw 90vh 0 0 #b2cdeb,
+			94vw 84vh 0 0 #9ec1e3;
+	}
+
+	.stars::after {
+		width: 1px;
+		height: 1px;
+		animation-duration: 12s;
+		animation-delay: 2s;
+		box-shadow:
+			4vw 14vh 0 0 #7faad3,
+			10vw 40vh 0 0 #8bb6dd,
+			16vw 30vh 0 0 #93bce1,
+			22vw 12vh 0 0 #7fa9d3,
+			28vw 50vh 0 0 #8fb8de,
+			34vw 18vh 0 0 #82aed8,
+			40vw 58vh 0 0 #96bee2,
+			46vw 26vh 0 0 #89b4dd,
+			52vw 46vh 0 0 #83b0da,
+			58vw 12vh 0 0 #91b9df,
+			64vw 30vh 0 0 #86b2db,
+			70vw 54vh 0 0 #9ac0e3,
+			76vw 20vh 0 0 #80abd5,
+			82vw 42vh 0 0 #8fb8de,
+			88vw 28vh 0 0 #7da7d2,
+			94vw 52vh 0 0 #96bee2,
+			6vw 74vh 0 0 #8bb6dd,
+			18vw 64vh 0 0 #7faad4,
+			32vw 78vh 0 0 #93bce1,
+			46vw 70vh 0 0 #81aed8,
+			60vw 82vh 0 0 #8cb7dd,
+			72vw 76vh 0 0 #7aa6d1,
+			86vw 88vh 0 0 #95bde2,
+			96vw 68vh 0 0 #83b0da;
+	}
+
+	@keyframes twinkle {
+		0%,
+		100% {
+			opacity: 0.55;
+		}
+		50% {
+			opacity: 1;
+		}
 	}
 </style>
