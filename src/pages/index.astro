@@ -1,11 +1,115 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+  <main class="main-container">
+    <div class="content-wrapper">
+      <h1 class="name">aravinthan</h1>
+      <nav class="nav-links">
+        <a href="https://portfolio.example.com" target="_blank" rel="noopener noreferrer" class="nav-link">portfolio</a>
+        <a href="https://resume.example.com" target="_blank" rel="noopener noreferrer" class="nav-link">resume</a>
+        <a href="https://projects.example.com" target="_blank" rel="noopener noreferrer" class="nav-link">project</a>
+        <a href="https://blog.example.com" target="_blank" rel="noopener noreferrer" class="nav-link">blog</a>
+      </nav>
+    </div>
+    
+    <div class="social-icons">
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+      </a>
+      <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+        </svg>
+      </a>
+      <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="X (Twitter)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </a>
+    </div>
+  </main>
 </Layout>
+
+<style>
+  .main-container {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    padding: 3rem 1rem;
+  }
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+    justify-content: flex-start;
+  }
+
+  .name {
+    color: white;
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0 0 2rem 0;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .nav-link,
+  .social-link {
+    color: #9CA3AF;
+    transition: all 300ms ease-in-out;
+  }
+
+  .nav-link {
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-decoration: none;
+    text-transform: lowercase;
+  }
+
+  .nav-link:hover {
+    color: white;
+    transform: scale(1.05);
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .social-link:hover {
+    color: white;
+    transform: scale(1.05);
+  }
+
+
+</style>
